@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
+    <!-- 页面内容通过这个标签在屏幕上展示 -->
     <router-view/>
   </div>
 </template>

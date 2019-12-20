@@ -1,3 +1,4 @@
+/* eslint-disable key-spacing */
 <template>
   <div class="hello">
     <h1>密码登录</h1>
@@ -6,7 +7,9 @@
     <input placeholder="请输入密码" type="text" name="passWord"/>
     <br><br>
     <input type="submit" value="登录" />
-    <button @click="go">点我跳转</button>
+    <button @click="goUser">普通用户</button>
+    <button @click="goLeader">用户组长</button>
+    <button @click="goManager">管理员</button>
   </div>
 </template>
 
@@ -20,9 +23,15 @@ export default {
     }
   },
 
-  methods:{
-  	go(){
-  		this.$router.push('/Registered')
+  methods: {
+  	goUser() {
+  		this.$router.push('/User')
+    },
+    goLeader() {
+  		this.$router.push('/Leader')
+    },
+  	goManager() {
+  		this.$router.push('/Manager')
   	}
   }
 }

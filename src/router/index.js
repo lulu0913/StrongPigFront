@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import User from '@/components/User'
+import BlogLogin from '@/components/manage/BlogLogin'
+import User from '@/components/home/User'
+// import HelloWorld from '@/components/HelloWorld'
+// import User from '@/components/User'
 import Leader from '@/components/Leader'
 import Manager from '@/components/Manager'
 
@@ -10,10 +12,18 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      // 注册界面路由
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      redirect: '/login'
+    },
+    {
+      path: '/manage',
+      redirect: '/login'
+    },
+    {
+      // 注册界面路由
+      path: '/login',
+      name: 'BlogLogin',
+      component: BlogLogin
     },
     {
       // 普通用户界面

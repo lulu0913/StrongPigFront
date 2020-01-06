@@ -1,44 +1,39 @@
 <template>
-  <div>
-    <hr/>
-    <div>
-      用户名:<input type="text" v-model="loginInfoVo.username" placeholder="请输入用户名" />
-      <br/>
-      密码：<input type="password" v-model="loginInfoVo.password" placeholder="请输入密码" />
-      <br/>
-      <button v-on:click="login">登录</button>
-      <br/>
-      登录验证情况：<textarea cols="30" rows="10" v-model="responseResult"></textarea>
-    </div>
-    <hr/>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <p>{{el}}</p>
+    <form>
+        <el-input v-model="name" placeholder="名称" style="width:200px"></el-input>
+        <el-input v-model="price" placeholder="价格" style="width:200px"></el-input>
+        <el-button type="primary" @click="addUser">提交</el-button>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'BlogLogin',
-  // blogHeader、blogFooter组件给申明到components里面然后在template里面使用
-  // components: { blogHeader, blogFooter },
+  name: 'hello',
   data () {
     return {
-      loginInfoVo: { username: '', password: '' },
-      responseResult: []
+      msg: 'Welcome to Your Vue.js App',
+      name: '',
+      price: '',
+      el:''
     }
   },
   methods: {
-    login () {
-      this.$axios
-        .post('/login', {
-          username: this.loginInfoVo.username,
-          password: this.loginInfoVo.password
-        })
-        .then(successResponse => {
-          this.responseResult = JSON.stringify(successResponse.data)
-          if (successResponse.data.code === 200) {
-            this.$router.replace({path: '/User'})
-          }
-        })
-        .catch(failResponse => {})
+    addUser() {
+      var name = this.name;
+      var price = this.price;
+      this.$http.post('/api/user/addUser', {
+        name: name,
+        price: price
+      },{}).then((response) => {
+        console.log(response);
+      })
+    },
+    aaa(){
+      this.el="成功引入element";
     }
   }
 }

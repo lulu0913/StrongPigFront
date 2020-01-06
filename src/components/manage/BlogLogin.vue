@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'BlogLogin',
   // blogHeader、blogFooter组件给申明到components里面然后在template里面使用

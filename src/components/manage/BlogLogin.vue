@@ -3,16 +3,16 @@
     <h1>{{ msg }}</h1>
     <p>{{el}}</p>
     <form>
-        <el-input v-model="name" placeholder="名称" style="width:200px"></el-input>
-        <el-input v-model="price" placeholder="价格" style="width:200px"></el-input>
-        <el-button type="primary" @click="addUser">提交</el-button>
+        <input v-model="username" placeholder="名称" style="width:200px"><br>
+        <input v-model="password" placeholder="价格" style="width:200px"><br>
+        <button type="primary" @click="addUser">提交</button>
     </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'BlogLogin',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -23,18 +23,16 @@ export default {
   },
   methods: {
     addUser() {
-      var name = this.name;
-      var price = this.price;
-      this.$http.post('/api/user/addUser', {
-        name: name,
-        price: price
-      },{}).then((response) => {
+      let username = this.username;
+      let password = this.password;
+      this.$axios.post('/api/user/addUser', {
+        username: username,
+        password: password
+      }).then((response) => {
         console.log(response);
       })
     },
-    aaa(){
-      this.el="成功引入element";
-    }
+
   }
 }
 </script>

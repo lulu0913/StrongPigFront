@@ -1,11 +1,9 @@
-// 数据库连接配置
-module.exports = {
-    mysql: {
-      host: 'localhost', // 新建数据库连接时的 主机名或ID地址 内容
+module.exports ={
+    mysql:{
+      host: 'localhost',
       user: 'root',
-      password: '666666', // root 密码
-      database: 'spring_boot', // 数据库名
+      password: '666666',
+      database: 'spring_boot',
       port: '3306'
     }
   }
-  
